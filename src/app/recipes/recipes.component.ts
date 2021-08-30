@@ -7,9 +7,10 @@ import { Recipe } from './recipe.model';
   styleUrls: ['./recipes.component.scss']
 })
 export class RecipesComponent implements OnInit {
-  recipes: Recipe[]=[
-    new Recipe("Chicken","chicken curry","https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F5064952.jpg&q=85")
-  ];
+  // recipes: Recipe[]=[
+  //   new Recipe("Chicken","chicken curry","https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F5064952.jpg&q=85")
+  // ];
+  selectedRecipe: Recipe;
   constructor() { }
 
   ngOnInit(): void {
