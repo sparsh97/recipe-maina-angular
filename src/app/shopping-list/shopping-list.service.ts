@@ -10,10 +10,15 @@ export class ShoppingListService {
     new Ingredient("Apple",4),
    ];
 
-   ingredientAdded = new EventEmitter<Ingredient>();
+   ingredientAdded = new EventEmitter<Ingredient[]>();
   constructor() { }
 
   getIngredients() {
      return this.ingredients.slice();
+  }
+
+  onIngredientAdd(ingredient: Ingredient){
+    this.ingredients.push(ingredient);
+    this.ingredientAdded.emit(this.ingredients.slice())
   }
 }

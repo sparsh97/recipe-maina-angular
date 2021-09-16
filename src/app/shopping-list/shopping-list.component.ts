@@ -9,7 +9,7 @@ import { ShoppingListService } from './shopping-list.service';
   providers: [ShoppingListService]
 })
 export class ShoppingListComponent implements OnInit {
-  ingredients:Ingredient[];
+  ingredients:Ingredient[]=[];
   // ingredients:Ingredient[]=[];
   constructor(
     private shoppingListService: ShoppingListService
@@ -17,8 +17,8 @@ export class ShoppingListComponent implements OnInit {
 
   ngOnInit(): void {
     this.ingredients = this.shoppingListService.getIngredients();
-    this.shoppingListService.ingredientAdded.subscribe((res: Ingredient) =>{
-      this.ingredients.push(res);
+    this.shoppingListService.ingredientAdded.subscribe((res: Ingredient[]) =>{
+      this.ingredients=res;
     })
   }
 
