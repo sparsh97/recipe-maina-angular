@@ -1,4 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import { Recipe } from './recipe.model';
@@ -16,7 +17,7 @@ export class RecipesService {
     new Recipe("Dal-Baati","Pluses curry","https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F5064952.jpg&q=85",[]),
   ];
 
-  recipeSelected = new EventEmitter<Recipe>();
+  recipeSelected = new Subject<Recipe>();
   constructor(
     private slService: ShoppingListService
   ) { }
@@ -27,6 +28,10 @@ export class RecipesService {
 
   addIngredientToShoppingList(ingredients: Ingredient[]) {
     this.slService.addIngredientsToShoppingList(ingredients);
+  }
+
+  getRecipeDetailById(id: number){
+    return this.recipes[id];
   }
 
 }
